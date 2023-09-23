@@ -30,16 +30,3 @@ function monthsInterval(fromMonth, toMonth) {
   }
   return res
 }
-
-//1
-let january = new Date(2017, 0, 1);
-let march = new Date(2017, 2, 1);
-console.log(monthsInterval(january, march));
-//2
-let sept = new Date(2017, 8, 1);
-let april = new Date(2018, 3, 1)
-console.log(monthsInterval(sept, april));
-//3
-let march1 = new Date(2018, 2, 1);
-let march2 = new Date(2018, 2, 1);
-console.log(monthsInterval(march1, march2));
