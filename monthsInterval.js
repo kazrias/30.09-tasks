@@ -1,32 +1,17 @@
-function monthsInterval(fromMonth, toMonth) {
-  let months = {
-    0: 'January',
-    1: 'February',
-    2: 'March',
-    3: 'April',
-    4: 'May',
-    5: 'June',
-    6: 'July',
-    7: 'August',
-    8: 'September',
-    9: 'October',
-    10: 'November',
-    11: 'December'
+function monthsInterval(date1, date2) {
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let dt1 = new Date(date1)
+  let dt2 = new Date(date2)
+  const res = {};
+  if (dt1 > dt2) {
+    [dt1, dt2] = [dt2, dt1]
   }
-  let res = [];
-  let from = fromMonth.getMonth();
-  let to = toMonth.getMonth();
-  if (from < to)
-    for (let i = from; i <= to; i++)
-      res.push(months[i])
-  else if (from === to) {
-    return Object.values(months)
+  while (dt1 <= dt2) {
+    const currMonth = dt1.getMonth();
+    const monthToPush = months[currMonth];
+    if (!res.hasOwnProperty(monthToPush))
+      res[monthToPush] = true;
+    dt1.setMonth(currMonth + 1)
   }
-  else {
-    for (let i = 0; i <= to; i++)
-      res.push(months[i])
-    for (let i = from; i <= 11; i++)
-      res.push(months[i])
-  }
-  return res
+  return Object.keys(res)
 }
