@@ -4,7 +4,3 @@ function myTimeOut(f, ms, ...args) {
   return f(...args)
 }
 
-
-function sumArgs(...args) {
-  return args.reduce((curr, next) => curr + next)
-}
